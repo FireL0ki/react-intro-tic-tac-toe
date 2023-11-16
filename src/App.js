@@ -29,8 +29,10 @@ export default function Board() {
 }
 
 
-// { variable } is a prop being passed to the Square function
-function Square({ value }) {
+function Square() {
+  // useState allows the component to remember actions / the state it is in
+  const [value, setValue] = useState(null);
+
   // function to manage a click event
   function handleClick() {
     console.log('clicked!');
