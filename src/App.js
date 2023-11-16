@@ -1,5 +1,6 @@
 // Code in this module creates components - reusable code blocks that represent part of the UI
-// This renders, manages, and updates those UI elements
+
+import { useState } from 'react';
 
 // export: make this function accessible outside of this file/module
 // default: makes it the main function in the file
