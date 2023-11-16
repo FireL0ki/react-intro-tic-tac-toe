@@ -35,7 +35,7 @@ function Square() {
 
   // function to manage a click event
   function handleClick() {
-    console.log('clicked!');
+    setValue('X');
   }
 
   return (
