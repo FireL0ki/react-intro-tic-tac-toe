@@ -50,3 +50,6 @@ function Square({ value, onSquareClick }) {
   )
 }
 
+
+// Tutorial Pause point: "Now that your state handling is in the Board component, 
+// the parent Board component passes props to the child Square components so that they can be displayed correctly. "
