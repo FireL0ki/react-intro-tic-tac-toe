@@ -7,42 +7,30 @@ import { useState } from 'react';
 export default function Board() {
   // returns a button. <button> is a jsx (javascript xml) element - a combo of JS code & HTML tags
   // React components must return a single JSX element. Use Fragments <> </> to wrap multiple JSX elements
-  return (
-    <>
-      <div className="board-row">
-        <Square />
-        <Square />
-        <Square />
-      </div>
-      <div className="board-row">
-        <Square />
-        <Square />
-        <Square />
-      </div>
-      <div className="board-row">
-        <Square />
-        <Square />
-        <Square />
-      </div>
-    </>
-  );
+    const [squares, setSquares] = useState(Array(9).fill(null));
+      return (
+        <>
+          <div className="board-row">
+            <Square value={squares[0]} />
+            <Square value={squares[1]} />
+            <Square value={squares[2]} />
+          </div>
+          <div className="board-row">
+            <Square value={squares[3]} />
+            <Square value={squares[4]} />
+            <Square value={squares[5]} />
+          </div>
+          <div className="board-row">
+            <Square value={squares[6]} />
+            <Square value={squares[7]} />
+            <Square value={squares[8]} />
+          </div>
+        </>
+      );
 }
 
 
-function Square() {
-  // useState allows the component to remember actions / the state it is in
-  const [value, setValue] = useState(null);
-
-  // function to manage a click event
-  function handleClick() {
-    setValue('X');
-  }
-
-  return (
-    <button className="square" onClick={handleClick}>
-      {value}
-    </button>
-    )
-
+function Square({value}) {
+  return <button className="square">{value}</button>
 }
 
