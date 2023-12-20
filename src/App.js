@@ -12,7 +12,7 @@ export default function Board() {
 
     function handleClick(i) {
       // check if the square has already been marked by an 'x' or 'o', ie. it is not null (true)
-      if (squares[i]) {
+      if (squares[i] || calculateWinner(squares)) {
         return
       }
       // create a copy of the squares array using .slice(), following the principals of immutability to maintain data integrity / keep past data intact
@@ -30,8 +30,17 @@ export default function Board() {
       setXIsNext(!xIsNext)
     }
 
+    const winner = calculateWinner(squares);
+    let status;
+    if (winner) {
+      status = "Winner: " + winner;
+    } else {
+      status = "Next player: " + (xIsNext ? "X" : "O");
+    }
+
     return (
       <>
+        <div className="status">{status}</div>
         <div className="board-row">
           {/* when onSquareClick() runs / a square is clicked, call handleClick() */}
           <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
