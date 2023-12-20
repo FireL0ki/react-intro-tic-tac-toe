@@ -61,6 +61,26 @@ export default function Board() {
     );
 }
 
+function calculateWinner(squares) {
+  const lines = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+  ];
+  for (let i = 0; i < lines.length; i++) {
+    const [a, b, c] = lines[i];
+    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+      return squares[a];
+    }
+  }
+  return null;
+}
+
 
 function Square({ value, onSquareClick }) {
   return (
@@ -71,5 +91,6 @@ function Square({ value, onSquareClick }) {
 }
 
 
-// Tutorial Pause point: "Now that your state handling is in the Board component, 
-// the parent Board component passes props to the child Square components so that they can be displayed correctly. "
+// Tutorial Pause point: "As a final exercise, let’s make it possible to “go back in time” to the previous moves in the game."
+
+// Note: It's not currently managing a tie game, it still says 'next player'. Add logic to manage that instance.
