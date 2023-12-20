@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 
-// export: make this function accessible outside of this file/module
 // default: makes it the main function in the file
 export default function Board() {
   // returns a button. <button> is a jsx (javascript xml) element - a combo of JS code & HTML tags
@@ -10,7 +9,7 @@ export default function Board() {
     const [squares, setSquares] = useState(Array(9).fill(null));
 
     function handleClick(i) {
-      // create a copy of the squares array using .slice()
+      // create a copy of the squares array using .slice(), following the principals of immutability to maintain data integrity / keep past data intact
       const nextSquares = squares.slice();
       // add 'X' to the [i] index square of nextSquares array
       nextSquares[i] = "X";
